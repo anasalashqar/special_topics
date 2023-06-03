@@ -1,0 +1,404 @@
+<html style="font-family: 'Times New Roman', Times, serif">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      background-image: url(/JS-APP-1/cool-background.png);
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
+    "
+  >
+    <header
+      style="
+        display: flex;
+        justify-content: space-around;
+        background-color: rgb(205, 1, 205);
+        padding: 10px;
+        border-radius: 10px;
+        color: rgb(255, 243, 243);
+        max-width: 900px;
+        border: solid white 5px;
+        margin: 10px auto;
+        padding: 10px 90px;
+      "
+    >
+      مرحبا بكم في مشروع حاسوبيون 5
+    </header>
+    <div
+      style="
+        margin: 13px auto;
+        border-radius: 5px;
+        max-width: 900px;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row-reverse;
+        border: #e0115f solid 5px;
+        flex-wrap: nowrap;
+        align-items: center;
+        background-color: rgb(238, 205, 15);
+      "
+    >
+      <header style="margin: auto">
+        <h4 style="color: #e0115f; text-align: center">
+          هذا المشروع يهدف لعمل"كلاسيفيكيشن" للصورة الذي تم تحميلها من خلال الزر
+          في الجهة المقابلة
+          <br />
+          جرجير == rocka
+          <br />
+          خس == lettuce
+          <br />
+          بصل اخضر == green onion<br />
+          هذه النتائج الثلاثة الافتراضية
+        </h4>
+      </header>
+      <input
+        style="margin: 10px auto; cursor: pointer"
+        accept="image/*"
+        type="file"
+        id="input_button"
+      />
+    </div>
+    <img
+      id="img1"
+      src="./image.jpg"
+      style="
+        width: 300px;
+        margin: auto;
+        box-shadow: 50px gray;
+        border: solid gray 8px;
+      "
+    />
+    <br />
+    <br />
+    <button
+      style="
+        cursor: pointer;
+        max-width: 400px;
+        margin: auto;
+        width: 200px;
+        height: 50px;
+      "
+      onclick="predict()"
+    >
+      predict
+    </button>
+    <br />
+    <p
+      id="result"
+      style="
+        background: #bcc6cc;
+        margin: auto;
+        width: 300px;
+        height: 60px;
+        text-align: center;
+      "
+    >
+      نتيجتك اضغط الزر الذي في الأعلى لكي تظهر
+    </p>
+
+    <div role="main" style="margin: 10px auto; display: flex; padding: 0">
+      <ul
+        class="form-section page-section"
+        style="
+          list-style: none;
+          padding: 0;
+          background-image: url(/JS-APP-1/download.png);
+          background-position: center; /* Center the image */
+          background-repeat: no-repeat; /* Do not repeat the image */
+          background-size: cover;
+          height: 800px;
+          width: 600px;
+          text-align: center;
+        "
+      >
+        <li id="cid_1" class="form-input-wide" data-type="control_head">
+          <div class="form-header-group header-large">
+            <div class="header-text httac htvam">
+              <h1 id="header_1" class="form-header" data-component="header">
+                ساعدنا في تحسين برنامجنا
+              </h1>
+            </div>
+          </div>
+        </li>
+        <label
+          class="form-label form-label-right form-label-auto"
+          id="label_3"
+          for="first_3"
+          style="color: white; font-size: large; margin-bottom: 20px"
+        >
+          رجاء اكتب تعليق واحد فقط<span class="form-required">*</span>
+        </label>
+        <li
+          class="form-line jf-required"
+          data-type="control_fullname"
+          id="id_3"
+          style="display: flex; color: gray; flex-direction: column"
+        >
+          <div id="cid_3" class="form-input jf-required">
+            <div data-wrapper-react="true">
+              <span
+                class="form-sub-label-container"
+                style="vertical-align: top"
+                data-input-type="first"
+                ><input
+                  type="text"
+                  id="comment"
+                  name="q3_nameOf[first]"
+                  class="form-textbox validate[required]"
+                  data-defaultvalue=""
+                  autocomplete="section-input_3 given-name"
+                  size="50"
+                  value=""
+                  data-component="first"
+                  aria-labelledby="label_3 sublabel_3_first"
+                  required=""
+                /><label
+                  class="form-sub-label"
+                  for="first_3"
+                  id="sublabel_3_first"
+                  style="min-height: 13px"
+                  aria-hidden="false"
+                  >أسمك الثنائي</label
+                ></span
+              ><span
+                class="form-sub-label-container"
+                style="vertical-align: top"
+                data-input-type="last"
+                ><input
+                  type="text"
+                  id="name"
+                  name="q3_nameOf[last]"
+                  class="form-textbox validate[required]"
+                  data-defaultvalue=""
+                  autocomplete="section-input_3 family-name"
+                  size="15"
+                  value=""
+                  data-component="last"
+                  aria-labelledby="label_3 sublabel_3_last"
+                  required=""
+                /><label
+                  class="form-sub-label"
+                  for="last_3"
+                  id="sublabel_3_last"
+                  style="min-height: 13px"
+                  aria-hidden="false"
+                  >تعليقك</label
+                ></span
+              >
+            </div>
+          </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_radio" id="id_10">
+          <label
+            class="form-label form-label-right form-label-auto"
+            id="label_10"
+            for="input_10"
+          >
+            <span class="form-required">*</span>
+          </label>
+          <div id="cid_10" class="form-input jf-required">
+            <div
+              class="form-single-column"
+              role="group"
+              aria-labelledby="label_10"
+              data-component="radio"
+            >
+              <span class="form-radio-item" style="clear: left"
+                ><span class="dragger-item"></span
+                ><input
+                  type="radio"
+                  onclick="ls()"
+                  aria-describedby="label_10"
+                  class="form-radio validate[required]"
+                  id="input_10_0"
+                  name="q10_typeA"
+                  value="أنا اوافق ان تعليقي مفيد"
+                  required=""
+                /><label id="label_input_10_0" for="input_10_0">
+                  أنا اوافق ان تعليقي مفيد جدا جدا</label
+                ></span
+              >
+            </div>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_button" id="id_2">
+          <div id="cid_2" class="form-input-wide">
+            <div
+              data-align="auto"
+              style="display: flex; justify-content: space-around; flex-direction: column-reverse;"
+              class="form-buttons-wrapper form-buttons-auto jsTest-button-wrapperField"
+            >
+             <button
+                id="input_b"
+                type="submit"
+                style="display: none"
+                onclick="submmit()"
+                class="form-submit-button submit-button jf-form-buttons jsTest-submitField"
+              >
+                Submit
+              </button>
+              <label style="display: block;">جدد الصفحة بعد التسليم</label>
+            </div>
+          </div>
+          <div style="margin: 10px 0">
+            <label>اضغط هنا لتظهر التعليقات</label>
+            <button style="cursor: pointer; padding: 5px; border: black solid 2px;" onclick="recive()">تعليقات</button>
+          </div>
+        </li>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            overflow: auto;
+            height: 400px;
+          "
+        >
+          <div id="test1" style="margin: 0 10px"></div>
+        </div>
+      </ul>
+    </div>
+
+    <script>
+      var userDetail = [];
+
+      const func = () => {
+        const name = document.getElementById("name").value;
+        const comment = document.getElementById("comment").value;
+
+        const fetch_func = fetch(
+          "https://sp-js-app-default-rtdb.firebaseio.com/sp.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ key: name, name: name, comment: comment }),
+          }
+        ).then((response) => {
+          console.log(response.status);
+        });
+      };
+
+      let image = document.getElementById("img1");
+      let input_button = document.getElementById("input_button");
+
+      input_button.onchange = (evt) => {
+        const [file] = input_button.files;
+        if (file) {
+          image.src = URL.createObjectURL(file);
+        }
+      };
+
+      const recive = async () => {
+        const fetch_2 = await fetch(
+          "https://sp-js-app-default-rtdb.firebaseio.com/sp.json"
+        );
+        const data = await fetch_2.json();
+
+        const loaded = [];
+
+        for (const key in data) {
+          loaded.push({
+            name: data[key].name,
+            comment: data[key].comment,
+          });
+        }
+        const array = userDetail.concat(loaded);
+
+        document.getElementById("test1").innerHTML = array
+          .map(
+            (user) =>
+              `<div style="margin: 10px;
+            background-color: gray; width: 200px;
+    height: 50px;
+    width: 300px;
+    border: solid black 5px;">
+          <div>Name: ${user.name}</div>
+      <div>Comment: ${user.comment}</div>
+      
+    </div>`
+          )
+          .join("");
+      };
+
+      async function predict() {
+        var model = await tf.loadGraphModel("./model.json");
+
+        let example = tf.browser
+          .fromPixels(document.getElementById("img1"), 3)
+          .cast("float32");
+        console.log(example.shape);
+        example = example.reshape([
+          1,
+          example.shape[0],
+          example.shape[1],
+          example.shape[2],
+        ]);
+
+        let prediction = await model.predict(example);
+        let class_scores = await prediction.data();
+        let max_score_id = class_scores.indexOf(Math.max(...class_scores));
+        let classes = [
+          "green onion - بصل أخضر",
+          "lettuce - خس",
+          "rocka - جرجير",
+        ];
+
+        console.log(class_scores);
+        document.getElementById("result").innerHTML =
+          classes[max_score_id].toString();
+      }
+
+      const ls = () => {
+        let input_button = document.getElementById("input_b");
+        input_button.style =
+          "display: flex;  margin: 7px auto ;  cursor: pointer; padding: 6px; width:60px";
+      };
+
+      const submmit = () => {
+        const name = document.getElementById("name").value;
+        const comment = document.getElementById("comment").value;
+        console.log(name, comment);
+        userDetail.push({ name: name, comment: comment });
+
+        document.getElementById("test1").innerHTML = userDetail
+          .map(
+            (user) =>
+              `<div style="margin: 10px;
+            background-color: gray; width: 200px;
+    height: 50px;
+    width: 300px;
+    border: solid black 5px;">
+          <div>Name: ${user.name}</div>
+      <div>Comment: ${user.comment}</div>
+      
+    </div>`
+          )
+          .join("");
+        func();
+      };
+
+      document.getElementById("test1").innerHTML = userDetail
+        .map(
+          (user) =>
+            `<div style="margin: 10px;
+            background-color: gray; width: 200px;
+    height: 50px;
+    width: 300px;
+    border: solid black 5px;">
+          <div>Name: ${user.name}</div>
+      <div>Comment: ${user.comment}</div>
+      
+    </div>`
+        )
+        .join("");
+    </script>
+  </body>
+</html>
